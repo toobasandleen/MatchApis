@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",                     // Specifies that this is a Node.js debugging configuration
+            "request": "launch",                // Specifies that you want to launch (run/debug) the program
+            "name": "Launch Program",           // Name of this debugging configuration
+            "skipFiles": [
+                "<node_internals>/**"           // Skip debugging Node.js internal files
+            ],
+            "program": "${workspaceFolder}/myfile.js"  // Entry point of your Node.js application to debug
+        }
+    ]
+}
