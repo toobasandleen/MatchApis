@@ -31,17 +31,17 @@ module.exports = (sequelize, DataTypes) => {
         },
         role: {
             type: DataTypes.STRING,
-            allowNull: false,         
-            defaultValue: "manager"   
+            allowNull: false,
+            defaultValue: "manager"
         }
     });
-    Admin.associate=function(models){
-        Admin.hasMany(models.Orders,{
-            
-            as:'Admin',
-            foreignKey:"user_id"
+    Admin.associate = function (models) {
+        Admin.hasMany(models.Orders, {
+
+            as: 'Admin',
+            foreignKey: "user_id"
         });
-    
+
     };
     return Admin;
 }

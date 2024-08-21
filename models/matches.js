@@ -6,9 +6,9 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.INTEGER,
                 allowNull: false,
                 references: {
-                    model: "Identities",  
+                    model: "Identities",
                     key: "id",
-                 
+
 
                 }
             },
@@ -40,23 +40,23 @@ module.exports = (sequelize, DataTypes) => {
             },
             status: {
                 type: DataTypes.STRING,
-               
-             
+
+
             },
             matchDate: {
                 type: DataTypes.DATEONLY,
-                allowNull:false
-                
+                allowNull: false
+
             },
             matchTime: {
                 type: DataTypes.TIME,
-                allowNull:false
-               
+                allowNull: false
+
             }
         }
     );
-  
-    Matches.associate = function(models) {
+
+    Matches.associate = function (models) {
         // Team 1 association
         Matches.belongsTo(models.Identity, {
             foreignKey: "team1Id",
@@ -64,15 +64,15 @@ module.exports = (sequelize, DataTypes) => {
             onDelete: 'NO ACTION',
             onUpdate: 'NO ACTION',
         });
-  
+
         // Team 2 association
         Matches.belongsTo(models.Identity, {
-            foreignKey: "team2Id", 
+            foreignKey: "team2Id",
             as: "team2", // table name
             onDelete: 'NO ACTION',
             onUpdate: 'NO ACTION',
         });
-  
+
         // Umpire association
         Matches.belongsTo(models.Identity, {
             foreignKey: "umpireId",
@@ -87,6 +87,6 @@ module.exports = (sequelize, DataTypes) => {
             onUpdate: 'NO ACTION',
         });
     };
-  
+
     return Matches;
 };
